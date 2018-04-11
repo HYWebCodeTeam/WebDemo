@@ -16,6 +16,9 @@ namespace UnityUtility
     {
         private int m_useOrder;
 
+        //使用的会话控制器
+        private IEFContextCreater m_useContextCreater = UnityApplication.GetApplication().Reslove<IEFContextCreater>();
+
         public int Order
         {
             get
@@ -37,25 +40,30 @@ namespace UnityUtility
             //若符合要求
             if (input.MethodBase is MethodInfo && (input.MethodBase as MethodInfo).ReturnType == typeof(bool))
             {
-                //开启事务
-                using (TransactionScope useScope = new TransactionScope(TransactionScopeOption.RequiresNew))
+                using (var ctx = m_useContextCreater.CreatDbContext())
                 {
-                    returnValue = getNext()(input, getNext);
-                    //若没有异常则提交事务
-                    if (null == returnValue.Exception)
+                    using (var ta = ctx.Database.BeginTransaction())
                     {
-                        useScope.Complete();
-                        //设置返回值
-                        returnValue.ReturnValue = true;
-                    }
-                    else
-                    {
-                        //清空异常
-                        returnValue.Exception = null;
-                        //设置返回值
-                        returnValue.ReturnValue = false;
-                    }
+                        returnValue = getNext()(input, getNext);
+                        //若没有异常则提交事务
+                        if (null == returnValue.Exception)
+                        {
+                            ta.Commit();
+                            //设置返回值
+                            returnValue.ReturnValue = true;
+                        }
+                        else
+                        {
+                            ta.Rollback();
+                            //清空异常
+                            returnValue.Exception = null;
+                            //设置返回值
+                            returnValue.ReturnValue = false;
+                        }
+                    } 
+
                 }
+               
             }
             //正常执行
             else
