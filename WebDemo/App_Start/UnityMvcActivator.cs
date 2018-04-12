@@ -24,7 +24,11 @@ namespace WebDemo
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(UnityConfig.Container));
             */
-            var app = UnityUtility.UnityApplication.GetApplication();
+
+            UnityUtility.ObjectIOCTypeInfo useExcelORM = new UnityUtility.ObjectIOCTypeInfo(typeof(ExcelORM.ExcelORMManger), new ExcelORM.ExcelORMManger());
+
+            //Íâ²¿×¢²áExcelManger
+            var app = UnityUtility.UnityApplication.GetApplication(new System.Collections.Generic.HashSet<UnityUtility.ObjectIOCTypeInfo>() { useExcelORM });
             FilterProviders.Providers.Remove(FilterProviders.Providers.OfType<FilterAttributeFilterProvider>().First());
             FilterProviders.Providers.Add(new UnityFilterAttributeFilterProvider(app.CoreUnityContainer));
             DependencyResolver.SetResolver(new UnityDependencyResolver(app.CoreUnityContainer));

@@ -216,6 +216,8 @@
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="BLL\ExcelServerImp.cs" />
+    <Compile Include="BLL\IExcelServer.cs" />
     <Compile Include="BLL\ITestServer.cs" />
     <Compile Include="BLL\TestServer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -268,6 +270,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="DAL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExcelORM\ExcelORM.csproj">
+      <Project>{756d095b-7b0c-4c6c-807f-2db8a4870250}</Project>
+      <Name>ExcelORM</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
