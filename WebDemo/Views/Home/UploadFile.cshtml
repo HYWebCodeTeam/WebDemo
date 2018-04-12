@@ -1,0 +1,21 @@
+﻿
+@{  
+    ViewBag.Title = "测试Excel文件上传";  
+}  
+  
+
+<h1>测试Excel文件上传</h1>
+
+<form action="../Home/ConvertExcel" method="post" enctype="multipart/form-data">  
+<table>  
+ 
+<tr>  
+<td>@Html.Label("请选择文件:")</td>  
+<td><input type="file" name="excelFile" /></td>  
+</tr>  
+  
+<tr>  
+<td><input type="submit" value="提交" /></td></tr>  
+  
+</table>  
+</form> 

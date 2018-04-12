@@ -1,0 +1,23 @@
+﻿@model WebDemo.BLL.ExcelServerImp
+
+@{
+    ViewBag.Title = "提交成功";
+}
+
+<h2>数据成功转换并保存到数据库!</h2>
+
+<table class="table">
+    <tbody>
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Name</td>
+                <td>@student.Age</td>
+                <td>@student.Grade.GradeName</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
