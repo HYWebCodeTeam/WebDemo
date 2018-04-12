@@ -17,6 +17,12 @@ namespace Models
 
         }
 
+        public Grade(string strName)
+        {
+            GradeName = strName;
+        }
+
+
         public Grade(int id)
         {
             GradeID = id;
@@ -32,5 +38,12 @@ namespace Models
 
 
         public virtual DbSet<Student> Students { get; set; }
+
+
+
+        static public Grade TransformByString(string inputString)
+        {
+            return new Grade(inputString);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,44 @@ namespace WebDemo.BLL
     [Compent(RegistByClass = false)]
     public class ExcelServerImp:IExcelServer
     {
+        public ExcelServerImp()
+        {
+            // 创建ExcelORM单元格数据内容转换器
+            Dictionary<string, ExcelORM.ChageValueDelegate> mapTrans = 
+                new Dictionary<string, ExcelORM.ChageValueDelegate>();
+            mapTrans.Add("String2Grid", new ExcelORM.ChageValueDelegate(Grade.TransformByString));
+
+            useManger = new ExcelORM.ExcelORMManger(mapTrans);         
+        }
+
+
+        /// <summary>
+        /// 将一个Excel文件通过ORM转为ORM对象
+        /// </summary>
+        /// <param name="strFilePathName"></param>
+        /// <returns></returns>
+        public bool DoConvert(string strFilePathName)
+        {
+            return useManger.TryRead(strFilePathName, out m_lstStudent);
+        }
+
+
         /// <summary>
         /// 注入ExcelManger
         /// </summary>
         [Dependency]
         public ExcelORM.ExcelORMManger useManger { set; get; }
+
+
+        List<Student> m_lstStudent;
+
+
+        public List<Student> Students
+        {
+            get
+            {
+                return m_lstStudent;
+            }
+        }
     }
 }

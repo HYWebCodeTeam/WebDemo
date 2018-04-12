@@ -9,7 +9,8 @@ namespace WebDemo.BLL
     /// <summary>
     /// Excel服务接口
     /// </summary>
-    interface IExcelServer
+    public interface IExcelServer
     {
+        bool DoConvert(string strFilePathName);
     }
 }
