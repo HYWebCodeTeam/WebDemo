@@ -250,6 +250,7 @@
     <Compile Include="Models\SchoolDBEntities.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\ImageUtility.cs" />
     <Compile Include="Utility\StrEscapeTool.cs" />
     <Compile Include="Utility\UseEFContxtCreater.cs" />
   </ItemGroup>

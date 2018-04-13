@@ -7,6 +7,9 @@ using System.Web;
 
 namespace WebDemo.Utility
 {
+    /// <summary>
+    /// 字符串转义工具
+    /// </summary>
     class StrEscapeTool
     {
         #region 私有字段
