@@ -38,24 +38,24 @@ namespace UnityUtility
             //若符合要求
             if (input.MethodBase is MethodInfo && (input.MethodBase as MethodInfo).ReturnType == typeof(bool))
             {
-                //若有异常
-                if (returnValue.Exception != null)
+                //根据异常状态设置返回值
+                if (null != returnValue.Exception)
                 {
-                    //清空异常
-                    returnValue.Exception = null;
-                    //设置返回值
-                    returnValue.ReturnValue = false;
+                    returnValue.ReturnValue = true;
                 }
                 else
                 {
                     returnValue.ReturnValue = false;
                 }
+
+                //设置返回值类型
+                returnValue = CustomMethodReturn.PrepareCustomReturn(input, returnValue);
             }
 
-           
-           
 
             return returnValue;
         }
+
+
     }
 }

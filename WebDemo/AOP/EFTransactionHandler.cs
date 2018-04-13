@@ -40,26 +40,31 @@ namespace UnityUtility
             //若符合要求
             if (input.MethodBase is MethodInfo && (input.MethodBase as MethodInfo).ReturnType == typeof(bool))
             {
+                //开启连接上下文
                 using (var ctx = m_useContextCreater.CreatDbContext())
                 {
+                    //开启事务
                     using (var ta = ctx.Database.BeginTransaction())
                     {
                         returnValue = getNext()(input, getNext);
                         //若没有异常则提交事务
                         if (null == returnValue.Exception)
                         {
+                            //事务提交
                             ta.Commit();
                             //设置返回值
                             returnValue.ReturnValue = true;
                         }
                         else
                         {
+                            //事务回滚
                             ta.Rollback();
-                            //清空异常
-                            returnValue.Exception = null;
                             //设置返回值
                             returnValue.ReturnValue = false;
                         }
+
+                        //设置返回值类型
+                        returnValue = CustomMethodReturn.PrepareCustomReturn(input, returnValue);
                     } 
 
                 }
