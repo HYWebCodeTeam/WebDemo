@@ -8,7 +8,7 @@ using UnityUtility;
 
 namespace WebDemo.BLL
 {
-    [Compent(RegistByClass = false)]
+    [Compent(RegistByClass = false, Singleton = true)]
     public class ExcelEntity2DBServic : IEntity2DBService
     {
         public bool Save2DB(IExcelServer iExcelServer)

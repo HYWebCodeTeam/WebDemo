@@ -8,7 +8,7 @@ using UnityUtility;
 
 namespace BLL
 {
-    [Compent(RegistByClass = false)]
+    [Compent(RegistByClass = false,Singleton = true)]
     public class TestServer : ITestServer
     {
         public bool TestMethod()

@@ -250,8 +250,6 @@
     <Compile Include="Models\SchoolDBEntities.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility\ImageUtility.cs" />
-    <Compile Include="Utility\StrEscapeTool.cs" />
     <Compile Include="Utility\UseEFContxtCreater.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -284,6 +282,14 @@
     <ProjectReference Include="..\ExcelORM\ExcelORM.csproj">
       <Project>{756d095b-7b0c-4c6c-807f-2db8a4870250}</Project>
       <Name>ExcelORM</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NPOIUtility\NPOIUtility.csproj">
+      <Project>{B0BEAC2B-6D9A-41FA-9143-62CED6993C29}</Project>
+      <Name>NPOIUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToolCode\ToolCode.csproj">
+      <Project>{7CAF2076-DB12-4B78-A401-64C6C67E7D96}</Project>
+      <Name>ToolCode</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

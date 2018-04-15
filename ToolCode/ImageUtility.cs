@@ -4,13 +4,11 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
 using System.Linq;
-using System.Web;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace WebDemo.Utility
+namespace ToolCode
 {
-    /// <summary>
-    /// 图片工具
-    /// </summary>
     public class ImageUtility
     {
         /// <summary>
