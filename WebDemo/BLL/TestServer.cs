@@ -8,11 +8,12 @@ using UnityUtility;
 
 namespace BLL
 {
-    [Compent(RegistByClass = false,Singleton = true)]
+    [Compent(RegistByClass = false)]
     public class TestServer : ITestServer
     {
         public bool TestMethod()
         {
+            /*
             var Student1 = new Student
             {
                 Name = Guid.NewGuid().ToString(),
@@ -32,15 +33,15 @@ namespace BLL
 
             using (var db = new SchoolDBEntities())
             {
-                var lstGrade = db.Students.ToList();
+                var lstGrade = db.Datas.ToList();
 
 
-                db.Students.Add(Student1);
-                db.Students.Add(Student2);
+                db.Datas.Add(Student1);
+                db.Datas.Add(Student2);
 
                 db.SaveChanges();
             }
-
+            */
 
             return true;
         }

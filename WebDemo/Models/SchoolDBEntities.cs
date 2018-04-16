@@ -6,6 +6,8 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebDemo.ExcelOrmModels;
+using WebDemo.Models;
 
 namespace Models
 {
@@ -20,8 +22,6 @@ namespace Models
 
 
 
-        public DbSet<Student> Students { get; set; }
-
-        public DbSet<Grade> Grades { get; set; }
+        public DbSet<ArchComponentManifestEFModel> Datas { get; set; }
     }
 }

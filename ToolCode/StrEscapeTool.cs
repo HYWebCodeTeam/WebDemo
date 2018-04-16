@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ToolCode
 {
-    class StrEscapeTool
+    public class StrEscapeTool
     {
         #region 私有字段
 

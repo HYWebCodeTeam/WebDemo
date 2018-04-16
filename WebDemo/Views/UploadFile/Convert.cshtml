@@ -1,0 +1,64 @@
+﻿@model List<WebDemo.Models.ArchComponentManifestEFModel>
+
+@{
+    int id = 0;
+    ViewBag.Title = "提交成功";
+}
+
+<h2>提交数据如下:</h2>
+
+<table class="table" style="margin-top: 50px;">
+    <thead>
+        <tr>
+            <th>序号</th>
+            <th>一级构件分类</th>
+            <th>二级构件分类</th>
+            <th>三级构件分类</th>
+            <th>四级构件分类</th>
+            <th>构件名称</th>
+            <th>构件名称规则</th>
+            <th>构件编号</th>
+            <th>构件分类编码</th>
+            <th>构件分类编码中文名称</th>
+            <th>族名称</th>
+            <th>族类型名称</th>
+            <th>属性项名称</th>
+            <th>属性项值</th>
+
+            <th>属性值类型</th>
+            <th>属性值单位</th>
+        </tr>
+    </thead>
+
+
+    <tbody>
+        @foreach (var data in Model)
+        {
+            id++;
+
+            <tr>
+                <td>@id</td>
+
+                <td>@data.CategoryFirstName</td>
+                <td>@data.CategorySecondName</td>
+                <td>@data.CategoryThirdName</td>
+                <td>@data.CategoryFourthName</td>
+
+                <td>@data.Name</td>
+                <td>@data.RuleName</td>
+
+                <td>@data.Index</td>
+                <td>@data.Coding</td>
+                <td>@data.CodingChiness</td>
+
+                <td>@data.FamilyName</td>
+                <td>@data.FamilySymbolName</td>
+
+                <td>@data.PropertyName</td>
+                <td>@data.PropertyValue</td>
+                <td>@data.PropertyType</td>
+                <td>@data.PropertyUnit</td>
+            </tr>
+        }
+    </tbody>
+</table>

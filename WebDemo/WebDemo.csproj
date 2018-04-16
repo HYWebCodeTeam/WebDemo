@@ -223,9 +223,9 @@
     <Compile Include="BLL\ExcelServerImp.cs" />
     <Compile Include="BLL\IEntity2DBService.cs" />
     <Compile Include="BLL\IExcelServer.cs" />
-    <Compile Include="BLL\ITestServer.cs" />
-    <Compile Include="BLL\TestServer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UploadFileController.cs" />
+    <Compile Include="ExcelOrmModels\ArchComponentManifest.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -245,7 +245,7 @@
     <Compile Include="AOP\ServiceProxy.cs" />
     <Compile Include="AOP\ServiceProxyFactory.cs" />
     <Compile Include="IOC\UnityApplication.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ArchComponentManifestEFModel.cs" />
     <Compile Include="Models\Grade.cs" />
     <Compile Include="Models\SchoolDBEntities.cs" />
     <Compile Include="Models\Student.cs" />
@@ -265,8 +265,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Home\UploadFile.cshtml" />
-    <Content Include="Views\Home\ConvertExcel.cshtml" />
+    <Content Include="Views\UploadFile\Index.cshtml" />
+    <Content Include="Views\UploadFile\Convert.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
